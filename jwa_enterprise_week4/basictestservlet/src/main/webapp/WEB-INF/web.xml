@@ -9,4 +9,51 @@
     <welcome-file>default.jsp</welcome-file>
     <welcome-file>default.htm</welcome-file>
   </welcome-file-list>
+  
+  <servlet>
+  	<servlet-name>Greg</servlet-name>
+  	<servlet-class>com.revature.basics.AddServlet</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+  	<servlet-name>Greg</servlet-name>
+  	<url-pattern>/add</url-pattern>
+  </servlet-mapping>
+  
+<!-- servlet definition -->
+<servlet>
+   <servlet-name>ErrorHandler</servlet-name>
+   <servlet-class>com.revature.login.ErrorHandler</servlet-class>
+</servlet>
+
+<!-- servlet mappings -->
+<servlet-mapping>
+   <servlet-name>ErrorHandler</servlet-name>
+   <url-pattern>/ErrorHandler</url-pattern>
+</servlet-mapping>
+
+<!-- error-code related error pages -->
+<error-page>
+   <error-code>404</error-code>
+   <location>/ErrorHandler</location>
+</error-page>
+
+<error-page>
+   <error-code>403</error-code>
+   <location>/ErrorHandler</location>
+</error-page>
+
+<!-- exception-type related error pages -->
+<error-page>
+   <exception-type>
+      javax.servlet.ServletException
+   </exception-type >
+   <location>/ErrorHandler</location>
+</error-page>
+
+<error-page>
+   <exception-type>java.io.IOException</exception-type >
+   <location>/ErrorHandler</location>
+</error-page>
+
 </web-app>
